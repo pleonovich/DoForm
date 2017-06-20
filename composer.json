@@ -1,0 +1,32 @@
+{
+    "name": "pleonovich/DoForm",
+    "description": "Simple way to render html forms.",
+    "type": "library",
+    "version": "1.0.0",
+    "keywords": [
+        "html",
+        "form",
+        "input"
+    ],
+    "homepage": "https://github.com/pleonovich/DoForm",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Pavel Leonovich",
+            "email": "leonovich.pavel@gmail.com",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/pleonovich/DoForm/issues"
+    },
+    "require": {
+        "php": ">=5.0.0"
+    },
+    "autoload": {
+        "files": [
+          "DoForm.class.php",
+          "DoInput.class.php"
+        ]
+    }
+}
