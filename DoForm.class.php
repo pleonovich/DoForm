@@ -20,7 +20,7 @@
  *
  */
 
-include('DoInput.class.php');
+require_once('DoInput.class.php');
 
 class DoForm extends DoInput
 {
