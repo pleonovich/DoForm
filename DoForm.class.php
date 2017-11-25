@@ -1,28 +1,30 @@
 <?php
 /**
- * DO FORM CLASS 1.0.0
- *
- * @author leonovich.pavel@gmail.com
+ * DO FORM CLASS
+ * =============
  * Simple way to render html forms
+ * 
+ * @author leonovich.pavel@gmail.com
+ * @version 1.0.0
  *
  * Example:
  *
  * $form = DoForm::factory()
- * ->addText('name')
- * ->addTextarea('biography')
- * ->addSelect('gender', array('male','famale'))
- * ->addSelectIndexed('gender1', array('1'=>'famale','2'=>'male'), '2')
- * ->addSelectFormated('gender2', array(array('1','famale'),array('2','male')), '2')
- * ->addCheckbox('maried')
- * ->addFile('avatar')
- * ->addSubmit('Send')
+ * ->text('name')
+ * ->textarea('biography')
+ * ->select('gender', array('male','famale'))
+ * ->selectIndexed('gender1', array('1'=>'famale','2'=>'male'), '2')
+ * ->selectFormated('gender2', array(array('1','famale'),array('2','male')), '2')
+ * ->checkbox('maried')
+ * ->_file('avatar')
+ * ->submit('Send')
  * ->toArray();
  *
  */
 
 require_once('DoInput.class.php');
 
-class DoForm extends DoInput
+class DoForm
 {
     
     private $Form = array();
@@ -36,12 +38,24 @@ class DoForm extends DoInput
      *
      * @param string $name - input title
      * @param string $value - default value
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - params
      * @return SimpleForm - this object
      */
-    public function addText($name, $value = null, $extra = null)
+    public function text($name, $value = null, $params=array())
     {
-        $this->Form[$name] = self::text($name, $value, $extra);
+        $this->Form[$name] = DoInput::text($name, $value, $params);
+        return $this;
+    }
+
+    /**
+     * Input
+     *
+     * @param string $name
+     * @param string $arguments
+     * @return html input
+     */
+    public function __call ( $name, $arguments ) {        
+        $this->Form[$name] = DoInput::__callStatic($name, $arguments);
         return $this;
     }
     
@@ -52,12 +66,12 @@ class DoForm extends DoInput
      * @param string $value - default value
      * @param int $cols - cols value
      * @param int $rows - rows value
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - params
      * @return SimpleForm - this object
      */
-    public function addTextarea($name, $value = null, $cols = 50, $rows = 3, $extra = null)
+    public function textarea($name, $value = null, $cols = 50, $rows = 3, $params=array())
     {
-        $this->Form[$name] = self::textarea($name, $value, $cols, $rows, $extra);
+        $this->Form[$name] = DoInput::textarea($name, $value, $cols, $rows, $params);
         return $this;
     }
     
@@ -67,12 +81,12 @@ class DoForm extends DoInput
      * @param string $name - input title
      * @param array $options - select options array, like - array('male','famale')
      * @param string $value - checked value
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - anything you need to put into input tag
      * @return SimpleForm - this object
      */
-    public function addSelect($name, array $options, $value = null, $extra = null)
+    public function select($name, array $options, $value = null, $params=array())
     {
-        $this->Form[$name] = self::select($name, $options, $value, $extra);
+        $this->Form[$name] = DoInput::select($name, $options, $value, $params);
         return $this;
     }
     
@@ -82,12 +96,12 @@ class DoForm extends DoInput
      * @param string $name - input title
      * @param array $options - select options formated array, like - array(array('1','famale'),array('2','male'))
      * @param boolean $value - checked value
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - params
      * @return SimpleForm - this object
      */
-    public function addSelectFormated($name, array $options, $value = null, $extra = null)
+    public function selectFormated($name, array $options, $value = null, $params=array())
     {
-        $this->Form[$name] = self::selectFormated($name, $options, $value, $extra);
+        $this->Form[$name] = DoInput::selectFormated($name, $options, $value, $params);
         return $this;
     }
     
@@ -97,12 +111,12 @@ class DoForm extends DoInput
      * @param string $name - input title
      * @param array $options - select options indexed array, like - array('1'=>'famale','2'=>'male')
      * @param string $selected - selected value
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - params
      * @return SimpleForm - this object
      */
-    public function addSelectIndexed($name, array $options, $value = null, $extra = null)
+    public function selectIndexed($name, array $options, $value = null, $params=array())
     {
-        $this->Form[$name] = self::selectIndexed($name, $options, $value, $extra);
+        $this->Form[$name] = DoInput::selectIndexed($name, $options, $value, $params);
         return $this;
     }
     
@@ -111,12 +125,12 @@ class DoForm extends DoInput
      *
      * @param string $name - input title
      * @param string $value - checked value
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - params
      * @return SimpleForm - this object
      */
-    public function addCheckbox($name, $value = null, $extra = null)
+    public function checkbox($name, $value = null, $params=array())
     {
-        $this->Form[$name] = self::checkbox($name, $value, $extra);
+        $this->Form[$name] = DoInput::checkbox($name, $value, $params);
         return $this;
     }
     
@@ -125,12 +139,12 @@ class DoForm extends DoInput
      *
      * @param string $name - input title
      * @param boolean $multiple - multiple input or not
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - params
      * @return SimpleForm - this object
      */
-    public function addFile($name = "file", $multiple = true, $extra = null)
+    public function _file($name = "file", $multiple = true, $params=array())
     {
-        $this->Form[$name] = self::_file($name, $multiple, $extra);
+        $this->Form[$name] = DoInput::_file($name, $multiple, $params);
         return $this;
     }
     
@@ -138,12 +152,12 @@ class DoForm extends DoInput
      * Input type submit
      *
      * @param string $name - input title
-     * @param string $extra - anything you need to put into input tag
+     * @param string $params - params
      * @return SimpleForm - this object
      */
-    public function addSubmit($name, $extra = null)
+    public function submit($name, $params=array())
     {
-        $this->Form[$name] = self::submit($name, $extra);
+        $this->Form['submit'] = DoInput::submit($name, $params);
         return $this;
     }
 
