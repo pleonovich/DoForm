@@ -1,5 +1,5 @@
 {
-    "name": "pleonovich/DoForm",
+    "name": "pleonovich/doform",
     "description": "Simple way to render html forms.",
     "type": "library",
     "version": "1.0.0",
@@ -8,7 +8,7 @@
         "form",
         "input"
     ],
-    "homepage": "https://github.com/pleonovich/DoForm",
+    "homepage": "https://github.com/pleonovich/doform",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -18,7 +18,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/pleonovich/DoForm/issues"
+        "issues": "https://github.com/pleonovich/doform/issues"
     },
     "require": {
         "php": ">=5.0.0"
