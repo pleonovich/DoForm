@@ -4,6 +4,8 @@ Simple way to render html forms
 ## Some examples
 ### text
 ```php
+use DoForm\DoForm as DoForm;
+
 // Description:
 DoForm text ( string $name [, string $value = null [, string $extra = null ]] )
 
@@ -14,6 +16,7 @@ echo DoForm::factory()->text('name');
 ```
 ### textarea
 ```php
+use DoForm\DoForm as DoForm;
 // Description:
 DoForm text ( string $name [, string $value = null [, $cols = 50 [, $rows = 3 [, $extra = null ]]]] )
 
@@ -25,6 +28,8 @@ echo DoForm::factory()->textarea('biography');
 ```
 ### select
 ```php
+use DoForm\DoForm as DoForm;
+
 // Description:
 DoForm select ( string $name, array $options [, string $value = null [, string $extra = null ]] )
 
@@ -38,6 +43,8 @@ echo DoForm::factory()->select('gender', array('male','famale'));
 ```
 ### selectIndexed
 ```php
+use DoForm\DoForm as DoForm;
+
 // Description:
 DoForm selectIndexed ( string $name, array $options [, string $value = null [, string $extra = null ]] )
 
@@ -51,6 +58,8 @@ echo DoForm::factory()->selectIndexed('gender1', array('1'=>'famale','2'=>'male'
 ```
 ### selectIndexed
 ```php
+use DoForm\DoForm as DoForm;
+
 // Description:
 DoForm selectFormated ( string $name, array $options [, string $value = null [, string $extra = null ]] )
 
@@ -64,6 +73,8 @@ echo DoForm::factory()->selectFormated('gender2', array(array('1','famale'),arra
 ```
 ### checkbox
 ```php
+use DoForm\DoForm as DoForm;
+
 // Description:
 DoForm checkbox ( string $name [, string $value = null [, string $extra = null ]] )
 
@@ -74,6 +85,8 @@ echo DoForm::factory()->checkbox('maried');
 ```
 ### _file
 ```php
+use DoForm\DoForm as DoForm;
+
 // Description:
 DoForm _file ( [ string $name = "file" [, $multiple = true [, $extra = null ]]] )
 
@@ -84,6 +97,8 @@ echo DoForm::factory()->_file('avatar');
 ```
 ### submit
 ```php
+use DoForm\DoForm as DoForm;
+
 // Description:
 DoForm submit ( string $name [, $extra = null ] )
 
@@ -94,6 +109,8 @@ echo DoForm::factory()->submit('Send');
 ```
 ### Creating form
 ```php
+use DoForm\DoForm as DoForm;
+
 $form = DoForm::factory()
 ->text('name')
 ->textarea('biography')
@@ -110,6 +127,8 @@ Simple way to render html form inputs
 
 ## Example:
 ```php
+use DoForm\DoInput as DoInput;
+
 $input = DoInput::text('name');
 $input.= DoInput::textarea('biography');
 $input.= DoInput::select('gender', array('male','famale'), 'famale');

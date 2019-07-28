@@ -1,6 +1,8 @@
 <?php
-require_once('DoInput.class.php');
-require_once('DoForm.class.php');
+require __DIR__ . '/vendor/autoload.php';
+
+use DoForm\DoForm as DoForm;
+use DoForm\DoInput as DoInput;
 
 /*
  * DoInput

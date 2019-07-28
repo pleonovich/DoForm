@@ -24,9 +24,8 @@
         "php": ">=5.0.0"
     },
     "autoload": {
-        "files": [
-          "DoForm.class.php",
-          "DoInput.class.php"
-        ]
+        "psr-4": {
+            "DoForm\\": "src/"
+        }
     }
 }
